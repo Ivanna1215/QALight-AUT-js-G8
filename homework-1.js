@@ -8,11 +8,11 @@
 
 
 let hamburgersAvailable = 4;
-let friesAvailable = 4;
+let friesAvailable = 1;
 
-let friends = 5; 
+let friends = 4;
 
-if (hamburgersAvailable >= friends && friesAvailable >= friends) {
+if (hamburgersAvailable >= friends && friesAvailable >= 1) {
     console.log("Ми поїли");
 } else {
     console.log("Ми йдемо в інше кафе");
@@ -147,3 +147,78 @@ switch (action) {
         console.log('This is default output');
         break;
 }
+
+// 8. Використовуючи цикл for перемістити значення від 1 до 5 у масив myArray.
+let myArray = [];
+
+for (let i = 1; i <= 5; i++) {
+    myArray.push(`${i}`)
+}
+
+
+console.log(myArray);
+
+// 9. Напишіть 2 цикли.
+//    За допомогою першого передайте парні числа від 1 до 9 у змінну myArray за допомогою циклу for.
+//    За допомогою другого передайте непарні числа від 1 до 9 у змінну myArray за допомогою циклу for.
+
+let myArraySecond = []
+
+for (let i = 0; i <= 9; i++) {
+    if (i % 2 == 0) {
+        myArraySecond.push(`${i}`)
+    }
+}
+
+console.log(myArraySecond);
+
+for (let i = 0; i <= 9; i++) {
+    if (i % 2) {
+        myArraySecond.push(`${i}`)
+    }
+}
+
+console.log(myArraySecond);
+
+
+// 10. Оголоcіть та ініціалізуйте змінну total = 0.
+//     Використовуйте цикл for, щоб додати значення кожного елемента масиву myArr до підсумку.
+
+const myArrThird = [2, 3, 4, 5, 6];
+
+let total = 0;
+
+myArrThird.forEach(function (elem) {
+    total = total + elem;
+    console.log('First', total);
+})
+
+console.log('This total',total)
+
+
+// 11. Напишіть код, котрий виведе в консоль кожен піделемент в arr по одному.
+
+const arr = [[1, 2], [3, 4], [5, 6]];
+
+
+for (let elem of arr) {
+    for (let insideEl of elem) {
+        console.log(insideEl)
+    }
+}
+
+// 12. Доповніть код нижче, так щоб в консоль повертався результат множення усіх чисел у підмасивах arr.
+//     Використайте для цього вкладені цикли for.
+
+let result = 1;
+
+const arrAgain = [[1], [2], [3]]
+
+arrAgain.forEach(function (elem) {
+    result = result * elem;
+    console.log('First', result);
+})
+
+console.log('This result', result)
+
+
