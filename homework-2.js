@@ -376,11 +376,11 @@ setTimeout(myFn, 2000)
 let toyota = { carBrand: 'Toyota', price: 60000, isAvailableForSale: false };
 let bmv = { carBrand: 'BMV', price: 80000, isAvailableForSale: false };
 let tesla = { carBrand: 'Tesla', price: 80000, isAvailableForSale: false };
-let arrCars = [toyota,bmv,tesla]
+let arrCars = [toyota, bmv, tesla]
 
-console.log (arrCars)
+console.log(arrCars)
 
-function addSameobj (arr){
+function addSameobj(arr) {
     console.log(arr.concat([arr[0]]))
 }
 
@@ -414,11 +414,11 @@ const myObject = {
 
 function showProperty(obj) {
     for (key in obj) {
-        if (key === 'key3' || key === 'key10' ) {
+        if (key === 'key3' || key === 'key10') {
             console.log(obj[key])
         }
     }
-return this
+    return this
 }
 
 showProperty(myObject)
@@ -450,11 +450,11 @@ showProperty(myObject)
 
  */
 
- const products = [
+const products = [
     { productId: 1355, name: 'phone' },
     { productId: 5131, name: 'laptop' },
     { productId: 6134, name: 'tablet' },
-    ]
+]
 
 function findProductById(id, arrProd) {
     switch (id) {
@@ -477,6 +477,81 @@ function findProductById(id, arrProd) {
 findProductById(11325, products)
 
 findProductById(1355, products)
+
+
+/** ЗАВДАННЯ 9
+ *
+ * 1. Створіть функцію "arraySortInfo" з одним параметром - "inputArray", та реалізуйте наступну логіку
+ *
+ * 2. Якщо хоча б один елемент у масиві не є числом – повернути "Деякі елементи не є числами"
+ *
+ * 3. Якщо числа у масиві відсортовані за зростанням - повернути "Масив відсортований за зростанням"
+ *
+ * 4. Якщо числа в масиві відсортовані за спаданням - повернути "Масив відсортований за спаданням".
+ *
+ * 5. Якщо масив не відсортований - повернути "Масив не відсортований"
+ */
+
+/*  const a = [5, 'abc', 10, 1]
+ const b = [4, 10, 14, 25, 25, 50]
+ const c = [150, 132, 80, 40]
+ const d = [15, 26, 10, 23, 85]
+
+ console.log(arraySortInfo(a)) // Деякі елементи не є числами
+ console.log(arraySortInfo(b)) // Масив відсортований за зростанням
+ console.log(arraySortInfo(c)) // Масив відсортований за спаданням
+ console.log(arraySortInfo(d)) // Масив не відсортований */
+
+/**
+ * ПІДКАЗКИ
+ *
+ * Підказка 1: Використовуйте метод масивів "every"
+ * Підказка 2: Ви повинні використовувати два параметри в колбек функції "element", "index"
+ * Підказка 3: Кожен елемент масиву, крім першого, слід порівнювати з попереднім
+ */
+
+const a = [5, 'abc', 10, 1];
+const b = [4, 10, 14, 25, 25, 50];
+const c = [150, 132, 80, 40];
+const d = [15, 26, 10, 23, 85];
+
+
+function arraySortInfo(inputArray) {
+    for (let i = 0; i < inputArray.lenght; i++) {
+        const notNumber = typeof (inputArray[i]) != 'number'
+    }
+
+    return this
+}
+
+function arraySortInfo(inputArray) {
+    if (!inputArray.every(element => typeof element === 'number')) {
+        return "Деякі елементи не є числами";
+    }
+
+    const isAscending = inputArray.every((element, index) => {
+        return index === 0 || inputArray[index - 1] <= element;
+    });
+
+    const isDescending = inputArray.every((element, index) => {
+        return index === 0 || inputArray[index - 1] >= element;
+    });
+
+    if (isAscending) {
+        return "Масив відсортований за зростанням";
+    } else if (isDescending) {
+        return "Масив відсортований за спаданням";
+    } else {
+        return "Масив не відсортований";
+    }
+}
+
+
+console.log(arraySortInfo(a)); 
+console.log(arraySortInfo(b));
+console.log(arraySortInfo(c)); 
+console.log(arraySortInfo(d)); 
+
 
 
 
