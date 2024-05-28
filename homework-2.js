@@ -515,15 +515,6 @@ const b = [4, 10, 14, 25, 25, 50];
 const c = [150, 132, 80, 40];
 const d = [15, 26, 10, 23, 85];
 
-
-function arraySortInfo(inputArray) {
-    for (let i = 0; i < inputArray.lenght; i++) {
-        const notNumber = typeof (inputArray[i]) != 'number'
-    }
-
-    return this
-}
-
 function arraySortInfo(inputArray) {
     if (!inputArray.every(element => typeof element === 'number')) {
         return "Деякі елементи не є числами";
