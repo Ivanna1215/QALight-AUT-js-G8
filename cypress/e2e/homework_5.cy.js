@@ -19,11 +19,10 @@ beforeEach(() => {
     //         cy.log('Value is 0, Your shopping cart is empty!');
     //     }
     // })
-    // cy.visit('/')
 })
 
 it('Place order from the main page', () => {
-    searchProd('Armani Code Sport')
+    searchProd('Euphoria Men Intense Eau De Toilette Spray')
 
 })
 

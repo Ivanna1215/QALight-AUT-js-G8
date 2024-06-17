@@ -12,21 +12,27 @@ export function login(loginname, password) {
 }
 
 export function searchProd(nameProd) {
-    cy.get('[placeholder="Search Keywords"]').type('E')
-    cy.get('[title="Go"]').click()
-    let counter = 0;
+    cy.get('[placeholder="Search Keywords"]').type('E');
+    cy.get('[title="Go"]').click();
+    checkProductOnPage(nameProd);
+}
 
-    while (counter < 5) {
-        cy.get('[class="prdocutname"]').each(($el)=>{
-            if($el.text().includes(nameProd)) {
-                cy.contains(nameProd).click();
-            }
+function checkProductOnPage(nameProd, counter) {
+
+    cy.get('[class="prdocutname"]').then(($elements) => {
+        const foundElement = $elements.toArray().find(element => {
+            return element.innerText.includes(nameProd);
         });
+
+        if (foundElement) {
+            cy.wrap(foundElement).click({ force: true });
+        } else {
             cy.get('.pagination .disabled+li a').then($page => {
-                if($page.is(':visible')) {
-                    cy.get($page).click();
+                if ($page.is(':visible')) {
+                    cy.wrap($page).click();
+                    checkProductOnPage(nameProd); 
                 }
-            })
-        counter++;
-    }
+            });
+        }
+    });
 }
